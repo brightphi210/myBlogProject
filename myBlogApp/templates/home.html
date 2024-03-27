@@ -1,0 +1,45 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'CSS/styles.css'%}">
+</head>
+<body>
+    <nav class="nav">
+        <h2>DEVS BLOG</h2>
+
+        <ul>
+            <li>Home</li>
+            <li>Dashboard</li>
+            <li>Login</li>
+            <li>Sign</li>
+        </ul>
+    </nav>
+
+
+    <section class="blogSection">
+        {% for blog in blogs %}
+
+        <div class="eachBlog">
+
+            <div class="imageDiv">
+                <img src="{{ blog.image.url }}" alt="my-pics">
+            </div>
+
+            <div class="textDiv">
+                <h2>{{blog.name}}</h2>
+                <p>{{blog.description}}</p>
+            </div>
+
+            <!-- <p>{{blog.comments.commentField}}</p> -->
+        </div>
+        
+        {% endfor %}
+    </section>
+
+</body>
+</html>
